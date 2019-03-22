@@ -15,10 +15,29 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class ArticleController
 {
     /**
-     * @Route("/yo/")
+     * @Route("/")
      */
     public function homepage()
     {
         return new Response('OMG! My first page already! WOOO!');
+    }
+
+    /**
+     * @Route("/news")
+     */
+    public function homepagebis()
+    {
+        return new Response('<html><body>OMG!  WOOO!</body></html>');
+    }
+
+    /**
+     * @Route("/news/{slug}")
+     */
+    public function show($slug)
+    {
+        return new Response(sprintf(
+            'Future page to show the article: "%s"',
+            $slug
+        ));
     }
 }
